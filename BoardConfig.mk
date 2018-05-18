@@ -43,7 +43,14 @@ WIFI_DRIVER_FW_PATH_AP := "/system/etc/firmware/fw_bcmdhd_apsta.bin"
 WIFI_DRIVER_FW_PATH_STA := "/system/etc/firmware/fw_bcmdhd.bin"
 
 # Kernel
-TARGET_KERNEL_CONFIG := 
+TARGET_KERNEL_CONFIG := a56djdugl_defconfig
+BOARD_KERNEL_SEPARATED_DT := true
+TARGET_KERNEL_SOURCE := kernel/htc/a56dj
+BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 user_debug=31 msm_rtb.filter=0x37 androidboot.hardware=qcom androidboot.selinux=enforcing
+BOARD_KERNEL_BASE := 0x00000000
+BOARD_KERNEL_PAGESIZE := 2048
+BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01000000 --tags_offset 0x00000100
+TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-eabi
 
 # Filesystem
 BOARD_BOOTIMAGE_PARTITION_SIZE := 0x00D00000
